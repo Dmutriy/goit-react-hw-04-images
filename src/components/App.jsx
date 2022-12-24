@@ -5,7 +5,6 @@ import { fetchImages, needValues } from './Services/pixabayAPI';
 import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { ButtonLoadMore } from './Button/Button';
-// import Button from '@mui/material/Button';
 import { Loader } from './Loader/Loader';
 import { Modal } from './Modal/Modal';
 
