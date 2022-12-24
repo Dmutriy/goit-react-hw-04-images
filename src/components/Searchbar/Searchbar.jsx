@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { BiSearchAlt2 } from 'react-icons/bi';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Header, Form, Bbutton, Input } from './Searchbar.styled.jsx';
+import { Header, Form, Button, Input } from './Searchbar.styled.jsx';
 
 export class Searchbar extends Component {
   state = {
@@ -33,9 +33,6 @@ export class Searchbar extends Component {
     return (
       <Header>
         <Form onSubmit={this.handleSubmit}>
-          <Bbutton type="submit">
-            <BiSearchAlt2 style={{ width: 25, height: 25 }} />
-          </Bbutton>
           <Input
             onChange={this.handleChange}
             value={searchQuery}
@@ -44,6 +41,9 @@ export class Searchbar extends Component {
             autoFocus
             placeholder="Search images and photos"
           />
+          <Button type="submit">
+            <BiSearchAlt2 style={{ width: 25, height: 25 }} />
+          </Button>
         </Form>
       </Header>
     );
