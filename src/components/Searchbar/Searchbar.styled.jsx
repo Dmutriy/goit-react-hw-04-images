@@ -14,9 +14,8 @@ export const Header = styled.header`
   padding-top: 12px;
   padding-bottom: 12px;
   color: #fff;
-  background-color: #3f51b5;
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  background-color: #fd7700;
+  box-shadow: rgba(253, 160, 0, 0.893) 0px 5px 25px 5px;
 `;
 export const Form = styled.form`
   display: flex;
@@ -28,7 +27,7 @@ export const Form = styled.form`
   overflow: hidden;
 `;
 
-export const Bbutton = styled.button`
+export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
