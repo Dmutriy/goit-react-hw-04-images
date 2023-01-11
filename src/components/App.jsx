@@ -12,12 +12,12 @@ export function App() {
   const [images, setImages] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [page, setPage] = useState(1);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [largeImageURL, setLargeImageURLs] = useState('');
   const [tags, setTags] = useState('');
-  const [totalHits, setTotalHits] = useState(null);
+  const [totalHits, setTotalHits] = useState(0);
 
   useEffect(() => {
     if (!searchQuery) {
@@ -40,14 +40,14 @@ export function App() {
         setImages(images => [...images, ...newImages]);
         setTotalHits(totalHits);
       } catch (error) {
-        setError(error);
+        // setError(error);
         toast.error('Oops... Something went wrong');
       } finally {
         setIsLoading(false);
       }
     };
     renderGallery();
-  }, [error, page, searchQuery]);
+  }, [page, searchQuery]);
 
   const onFormSubmit = searchQuery => {
     setSearchQuery(searchQuery);
@@ -69,7 +69,7 @@ export function App() {
     setShowModal(!showModal);
   };
 
-  const allImages = images.length === totalHits;
+  const allImages = images.length !== totalHits;
 
   return (
     <>
@@ -78,9 +78,7 @@ export function App() {
       <ImageGallery images={images} onOpenModal={openModal} />
       {isLoading && <Loader />}
 
-      {images.length !== 0 && !isLoading && !allImages && (
-        <ButtonLoadMore onClick={onLoadMore} />
-      )}
+      {!isLoading && allImages && <ButtonLoadMore onClick={onLoadMore} />}
       {showModal && (
         <Modal
           onModalClick={toggleModal}
